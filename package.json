@@ -1,0 +1,36 @@
+{
+  "name": "react-beautiful-dnd-board-base",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "@atlaskit/theme": "10.0.5",
+    "@xstyled/core": "1.19.0",
+    "@xstyled/styled-components": "1.19.0",
+    "@xstyled/system": "1.19.0",
+    "bootstrap": "4.5.2",
+    "prop-types": "15.7.2",
+    "react": "16.13.1",
+    "react-beautiful-dnd": "13.0.0",
+    "react-dom": "16.13.1",
+    "react-scripts": "3.4.3",
+    "reactstrap": "8.6.0",
+    "styled-components": "5.2.0"
+  },
+  "devDependencies": {
+    "typescript": "3.8.3"
+  },
+  "scripts": {
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
