@@ -54,7 +54,7 @@ export const quotes = [
   {
     id: "1",
     content: "افزایش تولیدات شرکت به سه برابر",
-    author: BMO
+    author: fin
   },
   {
     id: "2",
@@ -65,7 +65,7 @@ export const quotes = [
   {
     id: "3",
     content: "همکاری با شرکت های خارجی",
-    author: jake
+    author:  BMO
   },
   {
     id: "4",
@@ -75,12 +75,12 @@ export const quotes = [
   {
     id: "5",
     content: "پیروزی در مناقصه آبان ماه",
-    author: fin
+    author: BMO
   },
   {
     id: "6",
-    content: "راه اندازی دوربیین مداربسته",
-    author: princess
+    content: "راه اندازی دوربین مداربسته",
+    author: jake
   },
   {
     id: "7",
@@ -100,7 +100,7 @@ export const getQuotes = (count) =>
 
     const custom = {
       ...random,
-      id: `G${idCount++}`
+      id: `${idCount++}`
     };
 
     return custom;

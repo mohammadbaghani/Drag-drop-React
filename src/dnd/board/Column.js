@@ -43,11 +43,13 @@ const Column = (props) => {
               {title}
             </Title>
           </Header>
+
+          
           <QuoteList
             listId={title}
             listType="QUOTE"
             style={{
-              backgroundColor: snapshot.isDragging ? colors.G50 : null
+              backgroundColor: snapshot.isDragging ? 'red': 'null'
             }}
             quotes={quotes}
             internalScroll={props.isScrollable}

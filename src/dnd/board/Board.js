@@ -10,7 +10,7 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 const Container = styled.div`
   background-color: ${colors.B100};
   min-height: 100vh;
-  /* like display:flex but will allow bleeding over the window width */
+
   min-width: 100vw;
   display: inline-flex;
 `;
@@ -48,7 +48,7 @@ const Board = ({
       return;
     }
 
-    // dropped nowhere
+ 
     if (!result.destination) {
       return;
     }
@@ -56,7 +56,7 @@ const Board = ({
     const source = result.source;
     const destination = result.destination;
 
-    // did not move anywhere - can bail early
+
     if (
       source.droppableId === destination.droppableId &&
       source.index === destination.index
@@ -64,7 +64,7 @@ const Board = ({
       return;
     }
 
-    // reordering column
+
     if (result.type === "COLUMN") {
       const reorderedorder = reorder(ordered, source.index, destination.index);
 

@@ -1,7 +1,6 @@
 import styled from '@xstyled/styled-components';
 import { grid } from './constants';
 
-// $ExpectError - not sure why
 export default styled.h4`
   padding: ${grid}px;
   transition: background-color ease 0.2s;

@@ -14,7 +14,7 @@ export const reorderQuoteMap = ({ quoteMap, source, destination }) => {
   const next = [...quoteMap[destination.droppableId]];
   const target = current[source.index];
 
-  // moving to same list
+
   if (source.droppableId === destination.droppableId) {
     const reordered = reorder(current, source.index, destination.index);
     const result = {
@@ -26,11 +26,9 @@ export const reorderQuoteMap = ({ quoteMap, source, destination }) => {
     };
   }
 
-  // moving to different list
 
-  // remove from original
   current.splice(source.index, 1);
-  // insert into next
+
   next.splice(destination.index, 0, target);
 
   const result = {

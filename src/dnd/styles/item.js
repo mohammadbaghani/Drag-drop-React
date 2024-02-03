@@ -1,26 +1,13 @@
 import React from 'react';
 import styled from '@xstyled/styled-components';
-import { borderRadius, grid } from './constants';
+import { grid } from './constants';
 
-const getBackgroundColor = (isDragging, isGroupedOver, authorColors) => {
-  if (isDragging) {
-    return authorColors.soft;
-  }
 
-  if (isGroupedOver) {
-    return '#EBECF0';
-  }
-
-  return '#FFFFFF';
-};
-
-const getBorderColor = (isDragging, authorColors) =>
-  isDragging ? authorColors.hard : 'transparent';
 
 const imageSize = 40;
 
 const CloneBadge = styled.div`
-  background: #79f2c0;
+  background: red;
   bottom: ${grid / 2}px;
   border: 2px solid #57d9a3;
   border-radius: 50%;
@@ -34,17 +21,30 @@ const CloneBadge = styled.div`
   width: ${imageSize}px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  alig Wrappern-items: center;
 `;
 
+export const getBackgroundColor = (isDraggingOver, isDraggingFrom) => {
+  if (isDraggingOver) {
+    return 'blue';
+  }
+  if (isDraggingFrom) {
+    return 'red';
+  }
+  return 'white';
+};
 const Container = styled.a`
+
+
+
+background-color: ${(props) => getBackgroundColor(props.isDraggingOver, props.isDraggingFrom)};
     border: 2px solid #1a1515;
     border-color: transparent;
-    background-color: #ffffff;
+  
 
     box-sizing: border-box;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    border-radius: 7px;
+    margin-bottom: 40px;
     color: #000000;
 
     display: flex;
@@ -58,9 +58,9 @@ const Container = styled.a`
  
     -ms-flex-align: center;
     align-items: center;
-    width: 199px;
+    width: 250px;
     text-align: center;
-    height: 241px;
+    height: 270px;
     color: #091e42;
 overflow:hidden;
     display: flex;
@@ -69,7 +69,7 @@ overflow:hidden;
     padding-top: 130px;
 top:10px;
 
-box-shadow: 1px 1px 5px 1px #555;
+box-shadow: 1px 1px 5px 1px #a9adaf;
 
   &:hover,
   &:active {
@@ -88,22 +88,19 @@ box-shadow: 1px 1px 5px 1px #555;
 `;
 
 const Avatar = styled.img`
-width: 195px;
-    height: 125px;
-    border-top-right-radius: 5%;
-    border-top-left-radius: 5%;
-    margin-right: auto;
-    margin-left: auto;
-    position: relative;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    top: -118px;
-    left:180px;
+width: 240px;
+height: 145px;
+border-top-right-radius: 5%;
+border-top-left-radius: 5%;
+margin-right: auto;
+margin-left: auto;
+position: relative;
+
+flex-shrink: 0;
+
+flex-grow: 0;
+top: -122px;
+left: 164px;
 
 
 `;
@@ -144,16 +141,33 @@ margin-right: 134px;
 `;
 
 const Author = styled.small`
-  color: red;
-  flex-grow: 0;
-  width:95px;
-  margin: 0;
-  left:190px;
-  background-color: ${(props) => props.colors.soft};
-  border-radius:3px;
-  font-weight: normal;
-  padding: ${grid / 2}px;
-font-size:13px;
+color: white;
+ 
+    flex-grow: 0;
+    width: 150px;
+    margin: 0;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgb(98 109 129);
+    border-radius: 7px;
+    font-weight: normal;
+    padding: 4px;
+    border: 1px solid #bdbdbd;
+    font-size: 14px;
+    margin-top: -17px;
+    height: 35px;
+
+    display: flex;
+  
+  
+    justify-content: center;
+
+
+    align-items: center;
+    top: 240px;
 
 `;
 
@@ -166,6 +180,7 @@ const QuoteId = styled.small`
   text-align: right;
   align-items: center;
   margin-right: -100px;
+
 `;
 
 function getStyle(provided, style) {
@@ -180,13 +195,16 @@ function getStyle(provided, style) {
 }
 
 function QuoteItem(props) {
-  const { quote, isDragging, isGroupedOver, provided, style, isClone, index } = props;
+  const { quote, isDragging, isGroupedOver, isDraggingFrom, provided, style, isClone, index } = props;
 
   return (
     <Container
       href={quote.author.url}
       isDragging={isDragging}
       isGroupedOver={isGroupedOver}
+
+      isDraggingFrom={isDraggingFrom}
+
       isClone={isClone}
       colors={quote.author.colors}
       ref={provided.innerRef}
@@ -201,12 +219,12 @@ function QuoteItem(props) {
       <Avatar src={quote.author.avatarUrl} alt={quote.author.name} />
       {isClone ? <CloneBadge>Clone</CloneBadge> : null}
       <Content>
-        <BlockQuote>{quote.content}</BlockQuote>
+        <p>{quote.content}</p>
         <Footer>
           <Author colors={quote.author.colors}>{quote.author.name}</Author>
           <QuoteId>
-            id:
-            {quote.id}
+        
+        
           </QuoteId>
         </Footer>
       </Content>

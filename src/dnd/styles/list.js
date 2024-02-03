@@ -1,5 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import styled from '@xstyled/styled-components';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
@@ -9,36 +7,42 @@ import Title from './title';
 
 export const getBackgroundColor = (isDraggingOver, isDraggingFrom) => {
   if (isDraggingOver) {
-    return '#FFEBE6';
+    return'rgb(197, 204, 226)';
+
   }
   if (isDraggingFrom) {
-    return '#E6FCFF';
+        return'rgb(117, 133, 185)';
   }
-  return '#EBECF0';
+  return 'rgb(235, 236, 243)';
 };
 
 const Wrapper = styled.div`
   background-color: ${(props) => getBackgroundColor(props.isDraggingOver, props.isDraggingFrom)};
   display: flex;
   flex-direction: column;
-  opacity: ${({ isDropDisabled }) => (isDropDisabled ? 0.5 : 'inherit')};
+  opacity:1;
   padding: ${grid}px;
   border: ${grid}px;
   padding-bottom: 0;
   transition: background-color 0.2s ease, opacity 0.1s ease;
-  user-select: none;
-  width: 250px;
-`;
+  user-select: none; 
+  top:-10px;
+  position:relative;
 
+  width: 300px;
+
+
+`;
+const Container = styled.a`
+
+background-color: ${(props) => getBackgroundColor(props.isDraggingOver, props.isDraggingFrom)};
+`;
 const scrollContainerHeight = 850;
 
 const DropZone = styled.div`
-  /* stop the list collapsing when empty */
+
   min-height: ${scrollContainerHeight}px;
-  /*
-    not relying on the items for a margin-bottom
-    as it will collapse when the list is empty
-  */
+
   padding-bottom: ${grid}px;
 `;
 
@@ -48,9 +52,9 @@ const ScrollContainer = styled.div`
   max-height: ${scrollContainerHeight}px;
 `;
 
-/* stylelint-disable block-no-empty */
-const Container = styled.div``;
-/* stylelint-enable */
+
+
+
 
 const InnerQuoteList = React.memo(function InnerQuoteList(props) {
   return props.quotes.map((quote, index) => (
