@@ -1,6 +1,6 @@
 Drag and drop project with React
 
-***If you want to see the codes , so go to branch master***
+***If you want to see the codes , go to branch master***
 
 See the live of project here : 
 
