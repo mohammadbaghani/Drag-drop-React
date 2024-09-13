@@ -11,9 +11,9 @@ https://drag-drop.liara.run
 
 ***کدها در برنچ مستر می باشند***
 
-پروژه به صورت لایو اینجا هست :
+پروژه به صورت لایو اینجا هست : https://drag-drop.liara.run
 
-https://drag-drop.liara.run
+
 
 
 
