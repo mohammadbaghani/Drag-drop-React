@@ -5,7 +5,7 @@ Demo Link : https://drag-drop.liara.run
 
 
 
-درگ و دراپ با ری اکت
+درگ و دراپ با ری اکت زدم
 <br>
 </br>
 با استفاده از کتابخانه : dnd
